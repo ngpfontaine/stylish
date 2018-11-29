@@ -1,3 +1,11 @@
+/************/
+/*** Main ***/
+/************/
+
+body {
+  font-size: 16px;
+}
+
 /********************/
 /*** Middle Panel ***/
 /********************/
@@ -106,6 +114,40 @@
 
 .mx_RoomHeader_button:hover, .mx_SearchBox_minimise:hover {
   background: rgba(0,0,0,0.2);
+}
+
+/****************/
+/*** Messages ***/
+/****************/
+
+.mx_EventTile_line, .mx_EventTile_reply {
+  line-height: 1.5;
+}
+
+.mx_EventTile {
+  font-size: 0.95rem;
+}
+
+.mx_EventTile_line, .mx_EventTile_reply {
+  padding-top: 6px;
+}
+
+.mx_DateSeparator {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mx_EventTile .mx_MessageTimestamp {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 4px;
+  color: rgba(255,255,255,0.2);
+}
+
+.mx_DateSeparator {
+  margin-left: 75px;
+}
+.mx_EventTile_line, .mx_EventTile_reply {
+  padding-left: 75px;
 }
 
 /******************/
