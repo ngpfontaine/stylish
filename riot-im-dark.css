@@ -4,6 +4,13 @@
 
 body {
   font-size: 16px;
+  background-color: rgb(45, 45, 45);
+  color: rgb(221, 221, 221);
+}
+
+input[type="text"], input[type="password"], textarea {
+  background-color: transparent;
+  color: rgb(221, 221, 221);
 }
 
 /********************/
@@ -52,6 +59,7 @@ body {
   height: auto;
   margin-bottom: 5px;
   margin-top: -3px;
+  color: rgb(221, 221, 221);
 }
 .mx_RoomHeader_topic {
   line-height: 1;
@@ -150,9 +158,47 @@ body {
   padding-left: 75px;
 }
 
+code, .mx_EventTile_content .markdown-body code {
+  background-color: rgb(18, 18, 18) !important;
+  color: rgb(249, 89, 151) !important;
+}
+
+.mx_EventTile .mx_SenderProfile {
+  color: rgb(186, 186, 186);
+}
+
+/* Dark "..." buttons */
+.mx_EventTile_editButton {
+  background-image: url("../../img/icon_context_message_dark.svg");
+}
+
+/***************/
+/*** Sending ***/
+/***************/
+
+.mx_RoomView_statusArea {
+  background-color: rgba(255,255,255,0.02);
+}
+
+.mx_MessageComposer_wrapper {
+  border-top: none;
+}
+
+.mx_RoomView .mx_MessageComposer {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.mx_RoomView_statusAreaBox_line {
+  display: none;
+}
+
 /******************/
 /*** LEFT PANEL ***/
 /******************/
+
+.mx_MatrixChat .mx_LeftPanel {
+  background-color: rgb(45, 45, 45);
+}
 
 .mx_LeftPanel {
   border-right: none;
@@ -165,12 +211,15 @@ body {
   padding-bottom: 1.8rem;
 }
 
-.mx_RoomSubList > div:hover .mx_RoomTile {
-  background-color: rgba(0,0,0,0.12);
+.mx_RoomTile {
+  background-color: transparent;
 }
 
 .mx_RoomTile {
   height: auto;
+}
+.mx_RoomTile_name {
+  color: inherit;
 }
 .mx_RoomTile_avatar {
   padding: 11px 6px 11px 16px;
@@ -181,6 +230,10 @@ body {
   border-right: 3px solid rgb(118, 207, 166);
 }
 
+.mx_RoomSubList > div:hover .mx_RoomTile {
+  background-color: rgba(0,0,0,0.12);
+}
+
 .mx_RoomSubList_labelContainer {
   height: auto;
   border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -189,6 +242,7 @@ body {
 .mx_RoomSubList_label {
   background: transparent;
   padding: 17px 16px;
+  color: rgba(221,221,221);
 }
 
 .mx_RoomSubList_chevron {
@@ -240,4 +294,40 @@ body {
   transform: translateY(-50%);
   position: absolute;
   margin-left: 0.9rem;
+}
+
+/* Drop container */
+.mx_RoomDropTarget_container, .mx_RoomList_emptySubListTip_container {
+  background-color: transparent;
+}
+
+.mx_RoomDropTarget, .mx_RoomList_emptySubListTip {
+  background-color: rgba(0,0,0,0.2);
+  color: rgb(123,123,123);
+  border: 1px dashed rgb(71, 71, 71);
+}
+.mx_RoomDropTarget_label {
+  margin-top: 0;
+}
+
+/******************/
+/*** RIGHT PANEL ***/
+/******************/
+
+.mx_RightPanel_headerButtonGroup {
+  background-color: transparent;
+}
+
+.mx_RightPanel_header {
+  border-bottom: none;
+}
+
+/* Search Room members */
+.mx_MemberList_query, .mx_GroupMemberList_query, .mx_GroupRoomList_query {
+  border: none !important;
+  background-color: rgba(0,0,0,0.2) !important;
+}
+
+.mx_RightPanel_footer {
+  border-top: none;
 }
