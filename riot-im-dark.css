@@ -30,7 +30,12 @@ input[type="text"], input[type="password"], textarea {
 
 /* Hide separator between room title and messages */
 .mx_RoomView_auxPanel {
-  display: none;
+  border-bottom: none;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.mx_RoomView_auxPanel .mx_AppsDrawer {
+  margin: 0;
 }
 
 /* Add padding to room header container */
@@ -42,7 +47,7 @@ input[type="text"], input[type="password"], textarea {
 .mx_RoomView .mx_RoomHeader .mx_RoomHeader_wrapper {
   background: #292929;
   box-shadow: 0 2px 15px rgba(0,0,30,0.2);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+/*   border-bottom: 1px solid rgba(255,255,255,0.05); */
   padding: 0;
   max-width: none;
   align-items: unset;
@@ -115,7 +120,8 @@ input[type="text"], input[type="password"], textarea {
 
 /* Message Hover BG */
 .mx_EventTile:hover .mx_EventTile_line, .mx_EventTile.menu .mx_EventTile_line {
-  background-color: rgba(0,0,0,0.2);
+/*   background-color: transparent; */
+  background-color: rgba(0,0,0,0.1);
 }
 
 /* Basic Button Hover BG */
@@ -163,13 +169,18 @@ code, .mx_EventTile_content .markdown-body code {
   color: rgb(249, 89, 151) !important;
 }
 
+.mx_EventTile_content .markdown-body pre, .mx_EventTile_content .markdown-body code {
+  filter: none;
+}
+
 .mx_EventTile .mx_SenderProfile {
   color: rgb(186, 186, 186);
 }
 
 /* Dark "..." buttons */
 .mx_EventTile_editButton {
-  background-image: url("../../img/icon_context_message_dark.svg");
+/*   background-image: url("../../img/icon_context_message_dark.svg"); */
+  filter: brightness(35%);
 }
 
 /***************/
@@ -184,8 +195,58 @@ code, .mx_EventTile_content .markdown-body code {
   border-top: none;
 }
 
+.mx_MessageComposer_row {
+  align-items: unset;
+}
+
+.mx_MessageComposer_row > div {
+  display: flex;
+  align-items: center;
+  padding: 0;
+/*   flex: 1; */
+}
+
+.mx_MessageComposer_row > div:hover, .mx_MessageComposer_row > div:focus {
+  background-color: rgba(0,0,0,0.3);
+}
+
+div.mx_MessageComposer_avatar:hover,
+div.mx_MessageComposer_avatar:focus,
+div.mx_MessageComposer_input_wrapper:hover,
+div.mx_MessageComposer_input_wrapper:focus {
+  background: transparent;
+}
+
+.mx_MessageComposer_e2eIcon {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  filter: brightness(160%);
+}
+
+.mx_MessageComposer_row div.mx_AccessibleButton {
+  padding: 0 0.4rem;
+}
+
+.mx_MessageComposer_row > div > .mx_MessageComposer_stickers {
+  display: flex;
+  height: 100%;
+}
+
+.mx_MessageComposer_row > div > .mx_MessageComposer_stickers > * {
+  align-self: center;
+}
+
 .mx_RoomView .mx_MessageComposer {
   background-color: rgba(0,0,0,0.2);
+}
+
+div.mx_MessageComposer_input_wrapper {
+  padding-top: 6px;
+  display: block;
+  align-items: unset;
+  padding-left: 1rem;
 }
 
 .mx_RoomView_statusAreaBox_line {
@@ -208,7 +269,11 @@ code, .mx_EventTile_content .markdown-body code {
 .mx_RoomSubList {
   background: transparent;
 /*   border-bottom: 1px solid rgba(255,255,255,0.06); */
-  padding-bottom: 1.8rem;
+  /*padding-bottom: 1.8rem;*/
+}
+
+.mx_RoomSubList > div:last-child {
+  margin-bottom: 1.8rem;
 }
 
 .mx_RoomTile {
@@ -230,8 +295,13 @@ code, .mx_EventTile_content .markdown-body code {
   border-right: 3px solid rgb(118, 207, 166);
 }
 
-.mx_RoomSubList > div:hover .mx_RoomTile {
+.mx_RoomSubList > div:hover .mx_RoomTile,
+.mx_RoomSubList > div:focus .mx_RoomTile {
   background-color: rgba(0,0,0,0.12);
+}
+
+.mx_RoomTile:focus {
+  background-color: rgba(255,255,255,0.07);
 }
 
 .mx_RoomSubList_labelContainer {
@@ -279,6 +349,13 @@ code, .mx_EventTile_content .markdown-body code {
   font-style: italic;
   letter-spacing: 0.4px;
 }
+.mx_SearchBox_search:focus {
+  background-color: rgba(0,0,0,0.1);
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+  box-shadow: inset 0 -4px 10px rgba(0,0,0,0.15);
+}
 
 .mx_SearchBox_minimise {
   flex: 0;
@@ -310,6 +387,51 @@ code, .mx_EventTile_content .markdown-body code {
   margin-top: 0;
 }
 
+/*******************/
+/*** L COLLAPSED ***/
+/*******************/
+.collapsed .mx_RoomTile_nameContainer {
+  display: none;
+}
+
+.collapsed .mx_RoomSubList > div:last-child {
+  margin-bottom: 0;
+}
+
+.collapsed .mx_RoomSubList_labelContainer {
+  width: auto;
+}
+
+.collapsed .mx_RoomSubList_label {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* NOTE: this jumps l/r. need to fix */
+.collapsed .mx_RoomSubList_chevron.mx_RoomSubList_chevronDown,
+.collapsed .mx_RoomSubList_chevron {
+  right: initial;
+}
+
+.collapsed .mx_RoomSubList_chevron.mx_RoomSubList_chevronRight {
+  margin-left: 6px;
+}
+
+.mx_SearchBox_maximise {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  padding: 1.67rem 0;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.mx_SearchBox_maximise:hover,
+.mx_SearchBox_maximise:focus {
+  background-color: rgba(0,0,0,0.15);
+}
+
 /******************/
 /*** RIGHT PANEL ***/
 /******************/
@@ -328,6 +450,113 @@ code, .mx_EventTile_content .markdown-body code {
   background-color: rgba(0,0,0,0.2) !important;
 }
 
+.mx_MemberList_query:focus, .mx_GroupMemberList_query:focus, .mx_GroupRoomList_query:focus {
+  background-color: rgba(0,0,0,0.26) !important;
+}
+
 .mx_RightPanel_footer {
   border-top: none;
+}
+
+.mx_MemberList, .mx_GroupMemberList, .mx_GroupRoomList {
+  margin-right: 0;
+}
+
+.mx_MemberList > form {
+  padding: 0 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.mx_MemberList_query, .mx_GroupMemberList_query, .mx_GroupRoomList_query {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+}
+
+.mx_MemberList_query::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+.mx_MemberList_wrapper > .mx_EntityTile {
+  padding: 0.35rem 0.7rem;
+  display: block;
+  color: #777;
+}
+
+.mx_MemberList_wrapper > .mx_EntityTile:hover,
+.mx_MemberList_wrapper > .mx_EntityTile:focus {
+  background: rgba(0,0,0,0.15);
+}
+
+/* Top Buttons */
+.mx_RightPanel_header {
+ margin: 0; 
+}
+
+.mx_RightPanel_headerButtonGroup {
+  margin-top: 0;
+}
+
+.mx_RightPanel_headerButton {
+  padding: 0.2rem 0.5rem 0.6rem 0.5rem;
+}
+
+.mx_RightPanel_headerButton:hover,
+.mx_RightPanel_headerButton:focus {
+  background: rgba(0,0,0,0.15);
+}
+
+.mx_RightPanel_collapsebutton {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex: 0;
+  margin-left: auto;
+  padding: 0 1.2rem;
+}
+
+.mx_RightPanel_collapsebutton > object {
+  margin-left: auto;
+}
+
+/* Footer */
+.mx_RightPanel_footer {
+  margin: 0; 
+  flex: initial;
+}
+
+.mx_RightPanel_footer .mx_RightPanel_invite {
+  padding: 0.5rem 0.7rem;
+}
+
+.mx_RightPanel_footer .mx_RightPanel_invite:hover,
+.mx_RightPanel_footer .mx_RightPanel_invite:focus {
+  background: rgba(0,0,0,0.15);
+}
+
+/*************/
+/*** LOGIN ***/
+/*************/
+
+.mx_HomePage_guest_warning {
+  background-color: rgb(47, 47, 47);
+}
+
+/*************/
+/*** SPLASH ***/
+/*************/
+
+.mx_HomePage_room .mx_HomePage_desc {
+  color: #aaa;
+}
+
+.mx_HomePage_container h3 {
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.6rem;
+}
+
+.mx_HomePage_row {
+  margin-bottom: 2rem;
 }
