@@ -1,611 +1,350 @@
-/************/
-/*** Main ***/
-/************/
+/* Sidebar Left */
 
-body {
-  font-size: 16px;
-  background-color: rgb(45, 45, 45);
-  color: rgb(221, 221, 221);
+/* Top Left Menu Button */
+.mx_LeftPanel .mx_TopLeftMenuButton {
+  flex: 0 0 60px;
+}
+.mx_LeftPanel .mx_TopLeftMenuButton:focus {
+  background-color: rgba(255,255,255,0.007);
+}
+.mx_LeftPanel .mx_TopLeftMenuButton:hover {
+/*   background-color: rgba(255,255,255,0.002); */
+  border-color: aqua;
+}
+.mx_LeftPanel .mx_BaseAvatar_image {
+  width: 37px;
+  height: 37px;
+}
+.mx_LeftPanel .mx_TopLeftMenuButton_chevron {
+  margin-left: auto;
+  margin-right: 0.7rem;
 }
 
-input[type="text"], input[type="password"], textarea {
-  background-color: transparent;
-  color: rgb(221, 221, 221);
-}
-
-/********************/
-/*** Middle Panel ***/
-/********************/
-
-.mx_MatrixChat .mx_MatrixChat_middlePanel {
-/*   overflow: hidden;  */
-  background: rgb(32,32,32);
-}
-
-/* Remove padding left & right from main panel */
-.mx_MatrixChat .mx_MatrixChat_middlePanel {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-/* Hide separator between room title and messages */
-.mx_RoomView_auxPanel {
-  border-bottom: none;
-  background-color: rgba(0,0,0,0.3);
-}
-
-.mx_RoomView_auxPanel .mx_AppsDrawer {
+/* Contextual Menu */
+.mx_ContextualMenu .mx_TopLeftMenu .mx_TopLeftMenu_section {
   margin: 0;
 }
-
-/* Add padding to room header container */
-.mx_RoomHeader {
-  padding: 0;
+.mx_ContextualMenu .mx_TopLeftMenu .mx_TopLeftMenu_section > li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.mx_ContextualMenu .mx_TopLeftMenu .mx_TopLeftMenu_section li::after {
+  top: 47.5%;
+  opacity: 0.6;
+  transform: translateY(-50%);
+}
+.mx_ContextualMenu .mx_TopLeftMenu {
+  overflow: hidden;
 }
 
-/* Room header */
+/* Labels */
+.mx_LeftPanel .mx_RoomSubList_labelContainer {
+/*   border-bottom: 1px solid rgba(255,255,255,0.04); */
+}
+.mx_LeftPanel .mx_RoomSubList:first-child .mx_RoomSubList_labelContainer {
+/*   border-top: 1px solid rgba(255,255,255,0.04); */
+}
+
+.mx_LeftPanel .mx_RoomSubList_hidden,
+.mx_LeftPanel .mx_RoomSubList_hidden .mx_RoomSubList_labelContainer,
+.mx_LeftPanel .mx_RoomSubList_nonEmpty .mx_RoomSubList_labelContainer {
+  height: 40px !important;
+}
+.mx_LeftPanel .mx_RoomSubList_nonEmpty {
+  height: auto !important;
+}
+.mx_LeftPanel .mx_AutoHideScrollbar {
+  padding: 0;
+  background: rgba(0,0,0,0.1);
+}
+
+.mx_LeftPanel .mx_RoomSubList_labelContainer {
+  margin: 0;
+  display: flex;
+}
+.mx_LeftPanel .mx_RoomSubList .mx_RoomSubList_scroll {
+/*   padding-top: 1rem; */
+}
+
+.mx_LeftPanel .mx_RoomSubList_label {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  flex: 1;
+  height: 100%;
+}
+.mx_LeftPanel .mx_RoomSubList_label:focus {
+  background: rgba(255,255,255,0.01);
+}
+.mx_LeftPanel .mx_RoomSubList_label:hover {
+  background: rgba(255,255,255,0.03);
+}
+.mx_LeftPanel .mx_RoomSubList_addRoom {
+  height: 100%;
+  border-radius: 0;
+  margin: 0;
+  background-color: transparent;
+  flex: 0 0 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.mx_LeftPanel .mx_RoomSubList_addRoom:focus {
+  background-color: rgba(0,0,0,0.15);
+}
+.mx_LeftPanel .mx_RoomSubList_addRoom:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+.mx_LeftPanel .mx_RoomSubList_chevron {
+  transition-duration: 0.06s;
+}
+.mx_LeftPanel .mx_RoomSubList_nonEmpty .mx_AutoHideScrollbar_offset {
+  padding-bottom: 10px;
+}
+
+/* Room Tiles */
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile {
+/*   padding: 10px; */
+  padding: 0;
+  border-radius: 0;
+  height: auto;
+  align-items: stretch;
+}
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile:focus {
+  background: rgba(255,255,255,0.01);
+}
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile:hover {
+  background: rgba(255,255,255,0.03);
+}
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile_selected,
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile_selected:hover {
+  
+}
+
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile .mx_RoomTile_avatar {
+  padding: 10px;
+}
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile .mx_RoomTile_nameContainer {
+  flex: 1;
+  vertical-align: initial;
+}
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile .mx_RoomTile_menuButton {
+  display: block;
+  height: 100%;
+  padding: 0 0.18rem;
+}
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile .mx_RoomTile_menuButton:focus {
+  background-color: rgba(0,0,0,0.15);
+}
+.mx_LeftPanel .mx_RoomSubList .mx_RoomTile .mx_RoomTile_menuButton:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+/*** Roomview ***/
+
+/** Header **/
+
+.mx_RoomView .mx_RoomHeader {
+  flex: 0 1 60px;
+  background: rgba(255,255,255,0.04);
+  box-shadow: 3px 0 20px rgba(0,0,0,0.3);
+/*   display: flex; */
+}
 .mx_RoomView .mx_RoomHeader .mx_RoomHeader_wrapper {
-  background: #292929;
-  box-shadow: 0 2px 15px rgba(0,0,30,0.2);
-/*   border-bottom: 1px solid rgba(255,255,255,0.05); */
+  height: auto;
   padding: 0;
-  max-width: none;
-  align-items: unset;
+  display: flex;
+  align-items: stretch;
 }
-
-/* Room header title */
-.mx_RoomHeader_leftRow {
+.mx_RoomView .mx_RoomHeader .mx_RoomHeader_avatar {
+  height: 60px;
+  margin: 0;
+  width: auto;
+}
+.mx_RoomView .mx_RoomHeader .mx_BaseAvatar_image {
+  border-radius: 0;
+  height: 100%;
+  width: auto;
+}
+.mx_RoomView .mx_RoomHeader .mx_RoomHeader_name {
   display: flex;
   align-items: center;
-  overflow: visible;
+  margin-left: 1.2rem;
 }
-/* Header name & topic text */
-.mx_RoomHeader_name {
-  line-height: 1;
-  height: auto;
-  margin-bottom: 5px;
-  margin-top: -3px;
-  color: rgb(221, 221, 221);
-}
-.mx_RoomHeader_topic {
-  line-height: 1;
-}
-.mx_RoomHeader_name:hover div:not(.mx_RoomHeader_editable) {
-    color: rgb(174, 174, 174);
+.mx_RoomView .mx_RoomHeader .mx_RoomHeader_topic {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-left: 1rem;
+  max-height: none;
+  padding-top: 1px;
 }
 
-/* Remove weird white bg on avatar imgs */
-.mx_BaseAvatar_image {
-  background: transparent;
+/* Right Buttons */
+.mx_RoomHeader .mx_RoomHeader_buttons {
+  display: flex;
+/*   height: 100%; */
+  padding: 0;
 }
-
-/* Header Img */
-.mx_RoomHeader_avatar {
-  flex: 0 0 70px;
-  width: 70px;
-  height: 70px;
+.mx_RoomHeader .mx_RoomHeader_buttons > div {
+  cursor: pointer;
+  position: relative;
+  flex: 1;
+  margin: 0;
+  height: 100%;
+  padding: 0 0.3rem;
+  mask-position: center;
+  mask-size: 50%;
 }
-.mx_RoomHeader_avatar .mx_BaseAvatar_image {
-  border-radius: 0;
+.mx_RoomHeader .mx_RoomHeader_buttons > div:before {
+  position: absolute;
+  content: "";
   width: 100%;
-  height: auto;
+  height: 100%;
+/*   background: red; */
+/*   z-index: 10; */
+  right: 0;
+  left: 0;
+}
+.mx_RoomHeader .mx_RoomHeader_buttons > div:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+.mx_RoomHeader .mx_HeaderButtons .mx_RightPanel_headerButton {
+  cursor: pointer;
+  height: 100%;
+  margin: 0;
+  padding: 0 0.7rem;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.mx_RoomHeader .mx_HeaderButtons .mx_RightPanel_headerButton:last-child {
+  border-right: none;
+}
+.mx_RoomHeader .mx_HeaderButtons .mx_RightPanel_headerButton:focus {
+  background: rgba(0,0,0,0.15);
+}
+.mx_RoomHeader .mx_HeaderButtons .mx_RightPanel_headerButton:hover {
+  background: rgba(0,0,0,0.23);
+}
+.mx_RoomHeader .mx_HeaderButtons:before {
+  margin: 0;
+  background-color: rgba(255,255,255,0.13);
+}
+.mx_RoomHeader .mx_HeaderButtons .mx_RightPanel_headerButton:before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin: 0 auto;
+  mask-position: center;
+/*   mask-size: 50%; */
+}
+
+/* Timeline */
+.mx_RoomView .mx_RoomView_messagePanel {
+/*   max-width: 1100px;
+  margin: 0 auto; */
+}
+
+.mx_RoomView .mx_DateSeparator {
+  margin: 1.8rem 0;
+  padding: 0 4rem;
+}
+.mx_RoomView .mx_DateSeparator > hr {
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+
+/*** Message ***/
+.mx_MessageComposer {
+  background: #171717;
+}
+.mx_MessageComposer .mx_MessageComposer_wrapper {
+  padding: 0;
+  padding-right: 1rem;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+.mx_MessageComposer .mx_MessageComposer_row {
+  align-items: initial;
+/*   height: 100%; */
+  flex: 1;
+}
+.mx_MessageComposer .mx_MessageComposer_avatar {
+  position: relative;
+  left: auto;
+  padding: 0 1.33rem 0;
+  height: 65px;
+  display: flex;
+}
+.mx_MessageComposer_avatar .mx_BaseAvatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  align-self: center;
+}
+.mx_MessageComposer .mx_MessageComposer_input_wrapper {
+  padding: 0 1rem 0.7rem 0;
+}
+.mx_MessageComposer .mx_MessageComposer_row > div {
+/*   flex: 1; */
+}
+.mx_MessageComposer .mx_MessageComposer_input_markdownIndicator {
+  padding-top: 0;
+/*   padding-bottom: 0; */
+}
+.mx_MessageComposer .mx_MessageComposer_input {
+  margin: 0;
+}
+.mx_MessageComposer .mx_MessageComposer_editor {
+/*   background: red; */
+  max-height: none;
+  flex: 1;
+  padding: 0.3rem 0.3rem 0 0.3rem;
+  margin-bottom: 0;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+}
+.mx_MessageComposer .mx_MessageComposer_editor:focus {
+  background: #111;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.07); 
+}
+
+.mx_MessageComposer .mx_MessageComposer_row .mx_MessageComposer_button {
+  display: flex;
+  height: 50px;
+  margin: 0;
+  padding: 0 0.55rem;
+  mask-size: 50%;
+/*   height: 100%; */
+}
+.mx_MessageComposer .mx_MessageComposer_row > .mx_MessageComposer_button:last-child {
+/*   padding-right: 1.2rem; */
+}
+.mx_MessageComposer .mx_MessageComposer_row div .mx_MessageComposer_stickers {
 /*   height: 100%; */
 }
 
-/* Header Img on edit */
-.mx_RoomHeader_avatarPicker {
-  margin-top: 0;
-  text-align: center;
+/*** Dialog ***/
+.mx_Dialog_wrapper {
+  background: rgba(0,0,0,0.4);
 }
 
-/* Remove Image */
-.mx_RoomHeader_avatarPicker_remove {
-  right: -1rem;
-  top: -0.2rem;
+/* Settings */
+.mx_Field input, .mx_Field select, .mx_Field textarea {
+  border-color: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.3);
 }
 
-/* Edit Icon */
-.mx_RoomHeader_avatarPicker_edit {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-/* Save Button */
-.mx_RoomHeader_textButton {
-  align-self: center;
-}
-
-/* Cancel Button */
-.mx_RoomHeader_cancelButton {
-  display: flex;
-  align-items: center;
-}
-
-/* Header buttons, no bg */
-.mx_RoomHeader_rightRow {
-  background-color: transparent;
-}
-
-/* Header button row  */
-.mx_RoomHeader_rightRow {
-  align-items: unset;
-  margin-top: 0;
-}
-
-.mx_RoomHeader_rightRow > div {
-  display: flex;
-  margin-top: 0;
-}
-
-.mx_RoomHeader_rightRow > div > * {
-  align-self: center;
-}
-
-.mx_RoomHeader_button {
-  margin: 0;
-  padding: 0 0.85rem;
-}
-
-.mx_RoomHeader_button:last-child {
-  padding-right: 1rem;
-}
-
-/* Message Hover BG */
-.mx_EventTile:hover .mx_EventTile_line, .mx_EventTile.menu .mx_EventTile_line {
-/*   background-color: transparent; */
-  background-color: rgba(0,0,0,0.1);
-}
-
-/* Basic Button Hover BG */
-
-.mx_RoomHeader_button:hover, .mx_SearchBox_minimise:hover {
-  background: rgba(0,0,0,0.2);
-}
-
-/****************/
-/*** Messages ***/
-/****************/
-
-.mx_EventTile_line, .mx_EventTile_reply {
-  line-height: 1.5;
-}
-
-.mx_EventTile {
-  font-size: 0.95rem;
-}
-
-.mx_EventTile_line, .mx_EventTile_reply {
-  padding-top: 6px;
-}
-
-.mx_DateSeparator {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+.mx_Field input:focus + label, .mx_Field input:not(:placeholder-shown) + label, .mx_Field textarea:focus + label, .mx_Field textarea:not(:placeholder-shown) + label, .mx_Field select + label {
+  background: none;
+  top: -30px;
+  margin-left: 0;
   font-weight: bold;
-  color: rgba(255,255,255,1);
+  font-size: 0.8rem;
 }
 
-.mx_EventTile .mx_MessageTimestamp {
-  font-size: 12px;
-  font-weight: bold;
-  margin-top: 4px;
-  color: rgba(255,255,255,0.2);
+.mx_Dialog .mx_Field {
+  margin-top: 2.3rem;
 }
 
-.mx_DateSeparator {
-  margin-left: 75px;
-}
-.mx_EventTile_line, .mx_EventTile_reply {
-  padding-left: 75px;
-}
-
-code, .mx_EventTile_content .markdown-body code {
-  background-color: rgb(18, 18, 18) !important;
-  color: rgb(249, 89, 151) !important;
-}
-
-.mx_EventTile_content .markdown-body pre, .mx_EventTile_content .markdown-body code {
-  filter: none;
-}
-
-.mx_EventTile .mx_SenderProfile {
-  color: rgb(186, 186, 186);
-}
-
-/* Dark "..." buttons */
-.mx_EventTile_editButton {
-/*   background-image: url("../../img/icon_context_message_dark.svg"); */
-  filter: brightness(35%);
-}
-
-/***************/
-/*** Sending ***/
-/***************/
-
-.mx_RoomView_statusArea {
-  background-color: rgba(255,255,255,0.02);
-}
-
-.mx_MessageComposer_wrapper {
-  border-top: none;
-}
-
-.mx_MessageComposer_row {
-  align-items: unset;
-}
-
-.mx_MessageComposer_row > div {
-  display: flex;
-  align-items: center;
-  padding: 0;
-/*   flex: 1; */
-}
-
-.mx_MessageComposer_row > div:hover, .mx_MessageComposer_row > div:focus {
-  background-color: rgba(0,0,0,0.3);
-}
-
-div.mx_MessageComposer_avatar:hover,
-div.mx_MessageComposer_avatar:focus,
-div.mx_MessageComposer_input_wrapper:hover,
-div.mx_MessageComposer_input_wrapper:focus {
-  background: transparent;
-}
-
-.mx_MessageComposer_e2eIcon {
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  filter: brightness(160%);
-}
-
-.mx_MessageComposer_row div.mx_AccessibleButton {
-  padding: 0 0.4rem;
-}
-
-.mx_MessageComposer_row > div > .mx_MessageComposer_stickers {
-  display: flex;
-  height: 100%;
-}
-
-.mx_MessageComposer_row > div > .mx_MessageComposer_stickers > * {
-  align-self: center;
-}
-
-.mx_RoomView .mx_MessageComposer {
-  background-color: rgba(0,0,0,0.2);
-}
-
-div.mx_MessageComposer_input_wrapper {
-  padding-top: 0;
-  display: block;
-  align-items: unset;
-  padding-left: 1rem;
-}
-
-.mx_MessageComposer_input_markdownIndicator {
-  padding: 0 7px 7px 7px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  filter: invert(0.72);
-}
-
-.mx_MessageComposer_input_markdownIndicator:hover {
-  background-color: rgba(0,0,0,0.13);
-}
-
-.mx_MessageComposer_editor {
-  padding-top: 6px;
-}
-
-.mx_RoomView_statusAreaBox_line {
-  display: none;
-}
-
-/******************/
-/*** LEFT PANEL ***/
-/******************/
-
-.mx_MatrixChat .mx_LeftPanel {
-  background-color: rgb(45, 45, 45);
-}
-
-.mx_LeftPanel {
-  border-right: none;
-}
-
-/* Nav */
-.mx_RoomSubList {
-  background: transparent;
-/*   border-bottom: 1px solid rgba(255,255,255,0.06); */
-  /*padding-bottom: 1.8rem;*/
-}
-
-.mx_RoomSubList > div:last-child {
-  margin-bottom: 1.8rem;
-}
-
-.mx_RoomTile {
-  background-color: transparent;
-}
-
-.mx_RoomTile {
-  height: auto;
-}
-.mx_RoomTile_name {
-  color: inherit;
-}
-.mx_RoomTile_avatar {
-  padding: 11px 6px 11px 16px;
-}
-
-.mx_RoomTile_selected {
-  background-color: rgba(0,0,0,0.15);
-  border-right: 3px solid rgb(118, 207, 166);
-}
-
-.mx_RoomSubList > div:hover .mx_RoomTile,
-.mx_RoomSubList > div:focus .mx_RoomTile {
-  background-color: rgba(0,0,0,0.12);
-}
-
-.mx_RoomTile:focus {
-  background-color: rgba(255,255,255,0.07);
-}
-
-.mx_RoomSubList_labelContainer {
-  height: auto;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.mx_RoomSubList_label {
-  background: transparent;
-  padding: 17px 16px;
-  color: rgba(221,221,221);
-}
-
-.mx_RoomSubList_chevron {
-  top: 50%;
-  transform: translate(-50%,-50%);
-  right: 17px;
-  transform-origin: 50% 50%;
-}
-
-/* More intuitive rotation of chevrons */
-.mx_RoomSubList_chevron.mx_RoomSubList_chevronRight {
-  transform: translate(-50%,-50%) rotate(90deg);
-}
-.mx_RoomSubList_chevron.mx_RoomSubList_chevronDown {
-  transform: translate(0,-50%) rotate(-180deg);
-  margin-top: -1px;
-  right: 18px;
-}
-
-.mx_RoomSubList_label:hover {
-  background: rgba(255,255,255,0.03);
-}
-
-/* Search */
-.mx_SearchBox {
-  height: auto;
-  margin: 0;
-  position: relative;
-  padding: 0;
-}
-.mx_SearchBox_search {
-  height: auto;
-  padding: 1.72rem 0 1.72rem 2.5rem;
-  font-style: italic;
-  letter-spacing: 0.4px;
-}
-.mx_SearchBox_search:focus {
-  background-color: rgba(0,0,0,0.1);
-}
-
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-  box-shadow: inset 0 -4px 10px rgba(0,0,0,0.15);
-}
-
-.mx_SearchBox_minimise {
-  flex: 0;
-  padding: 0 1rem;
-  margin: 0;
-  display: flex;
-  align-items: center;
-}
-
-.mx_SearchBox_searchButton {
-  margin: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  margin-left: 0.9rem;
-}
-
-/* Drop container */
-.mx_RoomDropTarget_container, .mx_RoomList_emptySubListTip_container {
-  background-color: transparent;
-}
-
-.mx_RoomDropTarget, .mx_RoomList_emptySubListTip {
-  background-color: rgba(0,0,0,0.2);
-  color: rgb(123,123,123);
-  border: 1px dashed rgb(71, 71, 71);
-}
-.mx_RoomDropTarget_label {
-  margin-top: 0;
-}
-
-/*******************/
-/*** L COLLAPSED ***/
-/*******************/
-.collapsed .mx_RoomTile_nameContainer {
-  display: none;
-}
-
-.collapsed .mx_RoomSubList > div:last-child {
-  margin-bottom: 0;
-}
-
-.collapsed .mx_RoomSubList_labelContainer {
-  width: auto;
-}
-
-.collapsed .mx_RoomSubList_label {
-  display: flex;
-  justify-content: space-around;
-}
-
-/* NOTE: this jumps l/r. need to fix */
-.collapsed .mx_RoomSubList_chevron.mx_RoomSubList_chevronDown,
-.collapsed .mx_RoomSubList_chevron {
-  right: initial;
-}
-
-.collapsed .mx_RoomSubList_chevron.mx_RoomSubList_chevronRight {
-  margin-left: 6px;
-}
-
-.mx_SearchBox_maximise {
-  margin: 0;
-  flex: 1;
-  display: flex;
-  padding: 1.67rem 0;
-  align-items: center;
-  text-align: center;
-  justify-content: space-around;
-}
-
-.mx_SearchBox_maximise:hover,
-.mx_SearchBox_maximise:focus {
-  background-color: rgba(0,0,0,0.15);
-}
-
-/******************/
-/*** RIGHT PANEL ***/
-/******************/
-
-.mx_RightPanel_headerButtonGroup {
-  background-color: transparent;
-}
-
-.mx_RightPanel_header {
-  border-bottom: none;
-}
-
-/* Search Room members */
-.mx_MemberList_query, .mx_GroupMemberList_query, .mx_GroupRoomList_query {
-  border: none !important;
-  background-color: rgba(0,0,0,0.2) !important;
-}
-
-.mx_MemberList_query:focus, .mx_GroupMemberList_query:focus, .mx_GroupRoomList_query:focus {
-  background-color: rgba(0,0,0,0.26) !important;
-}
-
-.mx_RightPanel_footer {
-  border-top: none;
-}
-
-.mx_MemberList, .mx_GroupMemberList, .mx_GroupRoomList {
-  margin-right: 0;
-}
-
-.mx_MemberList > form {
-  padding: 0 0.7rem;
-  margin-bottom: 1rem;
-}
-
-.mx_MemberList_query, .mx_GroupMemberList_query, .mx_GroupRoomList_query {
-  width: 100%;
-  box-sizing: border-box;
-  display: block;
-  margin: 0;
-}
-
-.mx_MemberList_query::placeholder {
-  color: #666;
-  font-style: italic;
-}
-
-.mx_MemberList_wrapper > .mx_EntityTile {
-  padding: 0.35rem 0.7rem;
-  display: block;
-  color: #777;
-}
-
-.mx_MemberList_wrapper > .mx_EntityTile:hover,
-.mx_MemberList_wrapper > .mx_EntityTile:focus {
-  background: rgba(0,0,0,0.15);
-}
-
-/* Top Buttons */
-.mx_RightPanel_header {
- margin: 0; 
-}
-
-.mx_RightPanel_headerButtonGroup {
-  margin-top: 0;
-}
-
-.mx_RightPanel_headerButton {
-  padding: 0.2rem 0.5rem 0.6rem 0.5rem;
-}
-
-.mx_RightPanel_headerButton:hover,
-.mx_RightPanel_headerButton:focus {
-  background: rgba(0,0,0,0.15);
-}
-
-.mx_RightPanel_collapsebutton {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  flex: 0;
-  margin-left: auto;
-  padding: 0 1.2rem;
-}
-
-.mx_RightPanel_collapsebutton > object {
-  margin-left: auto;
-}
-
-/* Footer */
-.mx_RightPanel_footer {
-  margin: 0; 
-  flex: initial;
-}
-
-.mx_RightPanel_footer .mx_RightPanel_invite {
-  padding: 0.5rem 0.7rem;
-}
-
-.mx_RightPanel_footer .mx_RightPanel_invite:hover,
-.mx_RightPanel_footer .mx_RightPanel_invite:focus {
-  background: rgba(0,0,0,0.15);
-}
-
-/*************/
-/*** LOGIN ***/
-/*************/
-
-.mx_HomePage_guest_warning {
-  background-color: rgb(47, 47, 47);
-}
-
-/*************/
-/*** SPLASH ***/
-/*************/
-
-.mx_HomePage_room .mx_HomePage_desc {
-  color: #aaa;
-}
-
-.mx_HomePage_container h3 {
-  border-bottom: 1px solid #333;
-  padding-bottom: 0.6rem;
-}
-
-.mx_HomePage_row {
-  margin-bottom: 2rem;
+.mx_Dialog .mx_SettingsTab_heading {
+  margin-bottom: 2.4rem;
 }
