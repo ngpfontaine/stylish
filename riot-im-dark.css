@@ -166,6 +166,13 @@
   display: flex;
   align-items: center;
   margin-left: 1.2rem;
+  align-self: center;
+}
+.mx_RoomView .mx_RoomHeader .mx_RoomHeader_name:hover {
+  text-decoration: underline;
+}
+.mx_RoomHeader_name:hover div:not(.mx_RoomHeader_editable) {
+  color: #edf3ff;
 }
 .mx_RoomView .mx_RoomHeader .mx_RoomHeader_topic {
   display: flex;
